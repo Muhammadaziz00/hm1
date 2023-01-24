@@ -22,10 +22,35 @@ class SuperHero:
         return len(self.catchphrase)
 
 
-a = SuperHero
-print(a.people)
-hero = SuperHero("aziz","said","magic",1000,"stop")
-print(hero.aziz())
-print(hero.said())
-print(hero.sid())
-print(hero.len())
+
+
+class Hero(SuperHero):
+    def __init__(self, name, nickname, superpower, health_points, catchphrase):
+        super().__init__(name, nickname, superpower, health_points, catchphrase)
+        self.damage = False
+        self.fly = False
+    def hp(self):
+        self.fly = True
+        return f" квадрат: {self.health_points ** 2}"
+    def fl(self):
+        return f"catchphrase: {self.catchphrase}"
+
+
+
+class Villain(SuperHero):
+    people = "monster"
+    
+    def gen_x(self):
+        pass
+
+    def crit(self, damage1, damage2):
+        return f" урон: {damage1 ** damage2}"
+
+
+hero = Hero("Aziz", "Said", "msms", 100,  "fly in the True phrase")
+print(hero.hp())
+print(hero.fl())
+ 
+hro = Villain("Aziz", "Said", "msms", 100,  "fly in the True phrase")
+print(hro.gen_x())
+print(hro.crit(10,10))
